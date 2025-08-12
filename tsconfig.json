@@ -1,0 +1,7 @@
+{
+  "extends": "stack54/tsconfigs/base",
+  "include": ["src"],
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  }
+}
