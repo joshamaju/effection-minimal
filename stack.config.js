@@ -4,6 +4,7 @@ import server from "./plugins/server.js";
 import { loadEnv } from "vite";
 
 export default defineConfig({
+  entry: 'src/main.ts',
   integrations: [server()],
   views: ["src/views/**/*.{entry,page}.svelte"],
   vite: {

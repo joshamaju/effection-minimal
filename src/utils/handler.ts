@@ -20,11 +20,21 @@ export function create_handler(scope: Scope) {
       const task = scope.run(() => fn(req, res, next));
 
       try {
-        await task;
-      } catch (e) {
-        console.error("operation error: ", e);
-        next(e);
+        task.catch(e => {
+        console.log('catcher', e)
+        res.send('Done');
+        // throw new Error('re-throw')
+      })
+      } catch (error) {
+        console.log('outer', error)
       }
+
+      // try {
+      //   await task;
+      // } catch (e) {
+      //   console.error("operation error: ", e);
+      //   next(e);
+      // }
     };
   };
 }
